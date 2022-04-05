@@ -29,7 +29,7 @@ def main():
 
     while not finished:
         clock.tick(FPS)
-        balls = parameters(number=3, size=55, v=2)
+        balls = parameters(number=10, size=55, v=2)
         rects = parameters(number=2, size=25, v=1)
         start_time = time(pygame.time.get_ticks(), 0, lap)
         present_time = 0
@@ -55,7 +55,7 @@ def main():
     pygame.quit()
 
 
-def parameters(number, size, v=3):
+def parameters(number, size, v=1):
     """
     sets item parameters of items and puts in list
     :param number: number of items
