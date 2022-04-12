@@ -2,9 +2,6 @@
 В игре я добавил шарик который ловит шарики и мешает играть.
 Функция который превосходит 30 строк - mainloop(self) (43 - строк)
 """
-
-
-
 import random
 import math
 import pygame
@@ -39,20 +36,23 @@ class Game:
         self.clock = pygame.time.Clock()
         self.tries = 0
 
-        self.cannon = Cannon(self.screen, 0.1 * self.width, 0.85 * self.height, 0.05 * self.height, random.choice(GAME_COLORS))
+        self.cannon = Cannon(self.screen, 0.1 * self.width, 0.85 * self.height, 0.05 * self.height,
+                             random.choice(GAME_COLORS))
         self.target_colors = GAME_COLORS
         self.target_colors.remove(self.cannon.color)
         self.targets = []
 
         for i in range(2):
             self.targets.append(Ball(self.screen, random.randint(5 * self.width // 10, 9 * self.width // 10),
-                    random.randint(self.height // 10, 8 * self.height // 10), random.choice(self.target_colors),
-                    random.randint(self.height // 30, self.height // 20))
-            )
+                                     random.randint(self.height // 10, 8 * self.height // 10),
+                                     random.choice(self.target_colors),
+                                     random.randint(self.height // 30, self.height // 20))
+                                )
         self.emoji_n = 1
         self.emojis = [Emoji(self.screen, random.randint(5 * self.width // 10, 9 * self.width // 10),
-                random.randint(self.height // 10, 8 * self.height // 10), random.choice(self.target_colors),
-                random.randint(self.height // 15, self.height // 10), 0)]
+                             random.randint(self.height // 10, 8 * self.height // 10),
+                             random.choice(self.target_colors),
+                             random.randint(self.height // 15, self.height // 10), 0)]
 
     def mainloop(self):
         finished, mouse_down, key_down_event = False, False, None
